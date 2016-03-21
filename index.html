@@ -1,10 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>tmp</title>
+
+	<!-- add more meta! -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>RPS</title>
+	<!-- css -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="css/materialize.css" type="text/css" rel="stylesheet"/>
+	<link href="css/main.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-	<h1>Hello world!!!</h1>
+	<header>
+		<nav role="navigation">
+			<div class="nav-wrapper container">
+				<a href="#" class="brand-logo left">RPS</a>
+				<ul class="right">
+					<li><a href="#">modes</a></li>
+					<li><a href="#">stats</a></li>
+					<li><a href="#">log in</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<!-- ===============main================ -->
+	<main>
+		<div class="wrap-main-card container">
+			<div class="row">
+				<div class="col s12">
+					<div class="card">
+						<div class="card-image">
+							<img src="img/info-bg-1.jpg">
+							<div class="card-title valign-wrapper"><h2 class="valign">Rock-Paper-Scissors</h2></div>
+						</div>
+						<div class="card-content">
+							<div class="row center-align">
+								<div class="col m8">
+									<p class="left-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente reprehenderit illum eveniet error dolorem iusto, nulla autem! Id, neque labore tempora fugiat consequuntur dolores aliquam earum accusamus, totam nulla nisi.</p>
+								</div>
+								<div class="col m4 center-align">
+									<a class="waves-effect waves-light btn modes-btn">vs begginer</a>
+									<a class="waves-effect waves-light btn modes-btn">vs expert</a>
+								</div>
+
+							</div>
+							<div class="card-action">
+
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container quick-user-info">
+			<h3>Give us little info abut You:</h3>
+			<form action="#">
+				<div class="row">
+					<div class="col s4 offset-s2">
+						
+						<div class="wrap-radioinputs">
+						<h5 left-align>Male:</h5>
+						<p>
+							<input name="group1" type="radio" id="test1" />
+							<label for="test1">male</label>
+						</p>
+						<p>
+							<input name="group1" type="radio" id="test2" />
+							<label for="test2">female</label>
+						</p>
+					</div>
+					</div>
+					<div class="col s4">
+					
+					<div class="wrap-radioinputs">
+					<h5 left-align>Age:</h5>
+						<p>
+						<input name="group2" type="radio" id="test3" />
+							<label for="test3">< 14</label>
+						</p>
+						<p>
+							<input name="group2" type="radio" id="test4" />
+							<label for="test4">14 - 25</label>
+						</p>
+						<p>
+							<input name="group2" type="radio" id="test5" />
+							<label for="test5">> 25</label>
+						</p>
+					</div>
+					</div>
+					<a class="waves-effect waves-light btn modes-btn">Lets play</a>
+
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="container game-space">
+		<div class="row">
+			<div class="col s4 push-s1">
+				<h2>You</h2>
+			</div>
+			<div class="col s2 push-s1">
+				<h2><span class="score">17</span>:<span class="score">03</span></h2>
+			</div>
+			<div class="col s4 push-s1">
+				<h2>PC</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s6">
+				<div class="container rps-window">
+					?
+				</div>
+			</div>
+			<div class="col s6">
+				<div class="container rps-window">
+					?
+				</div>
+			</div>
+			<div class="col s12">
+				<h2>You won!</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<h2>Chose your hand!</h2>
+			</div>
+			<div class="col s4">
+				<div class="container rps-window">
+					?
+				</div>
+			</div>
+			<div class="col s4">
+				<div class="container rps-window">
+					?
+				</div>
+			</div>
+			<div class="col s4">
+				<div class="container rps-window">
+					?
+				</div>
+			</div>
+		</div>
+	</div>
+
+</main>
+<!-- =============footer================ -->
+<footer class="default-primary-color">
+	<div class="container primary-text-color">
+		<div class="row">
+			<div class="col l6 s12">
+				<h5 class="white-text">Footer Content</h5>
+				<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+			</div>
+			<div class="col l4 offset-l2 s12">
+				<h5 class="white-text">Links</h5>
+				<ul>
+					<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+					<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+					<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+					<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="footer-copyright dark-primary-color">
+		<div class="container">
+			© 2014 Copyright Text
+			<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+		</div>
+	</div>
+</footer>
+
+
+<!-- js -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
 </body>
 </html>

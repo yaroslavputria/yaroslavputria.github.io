@@ -1,0 +1,102 @@
+.dark-primary-color {
+  background: #0097A7;
+}
+
+.default-primary-color {
+  background: #00BCD4;
+}
+
+.light-primary-color {
+  background: #B2EBF2;
+}
+
+.text-primary-color {
+  color: #FFFFFF;
+}
+
+.accent-color {
+  background: #FFC107;
+}
+
+.primary-text-color {
+  color: #212121;
+}
+
+.secondary-text-color {
+  color: #727272;
+}
+
+.divider-color {
+  border-color: #B6B6B6;
+}
+
+@media only screen and (max-width: 992px) {
+  .card .card-image .card-title h2 {
+    font-size: 2.4rem !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .card .card-image .card-title h2 {
+    font-size: 1.4rem !important;
+  }
+}
+body {
+  min-width: 400px;
+}
+
+.row {
+  margin: 0;
+}
+
+.modes-btn {
+  margin: 1.2rem;
+  width: 9rem;
+  box-shadow: none;
+  font-size: 0.8rem;
+  padding: 0;
+}
+
+.modes-btn:hover {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+main .wrap-main-card {
+  margin: 4.8rem auto;
+}
+main .wrap-main-card .card .card-image .card-title {
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 67%;
+  height: 100%;
+}
+main .wrap-main-card .card .card-image .card-title h2 {
+  font-size: 3rem;
+  margin: 0 auto;
+}
+main .wrap-main-card .card-content {
+  padding: 0.8rem;
+}
+main .quick-user-info {
+  text-align: center;
+  margin: 4.8rem auto;
+  border-radius: 0 0 2px 2px;
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  padding: 1.2rem;
+}
+main .quick-user-info .wrap-radioinputs {
+  margin: 0 auto;
+  display: inline-block;
+}
+main .game-space {
+  text-align: center;
+  margin: 4.8rem auto;
+  border-radius: 0 0 2px 2px;
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  padding: 1.2rem;
+}
+main .game-space .rps-window {
+  background: #FFC107;
+  font-size: 10rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
