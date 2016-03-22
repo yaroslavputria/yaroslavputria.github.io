@@ -1,13 +1,17 @@
 @charset "UTF-8";
+// backgrounds
+$darkPrimaryColor: #0097A7;
+$defaultPrimaryColor: #00BCD4;
+$lightPrimaryColor: #B2EBF2;
 
-.dark-primary-color    { background: #0097A7; }
-.default-primary-color { background: #00BCD4; }
-.light-primary-color   { background: #B2EBF2; }
-.text-primary-color    { color: #FFFFFF; }
-.accent-color          { background: #FFC107; }
-.primary-text-color    { color: #212121; }
-.secondary-text-color  { color: #727272; }
-.divider-color         { border-color: #B6B6B6; }
+$accentColor: #FFC107;
+// text colors
+$textPrimaryColor: #FFFFFF; 
+
+$primaryTextColor: #212121;
+$secondaryTextColor: #727272;
+//border color
+$dividerColor: #B6B6B6;
 
 @media only screen and (max-width : 992px) {
 	.card .card-image .card-title h2{
@@ -41,7 +45,28 @@ body{
 }
 
 header{
+	.dropdown-content{
+		li{
+			a{
+				height: 64px;
+				line-height: 64px;
+				padding: 0;
+				padding-left: 14px;
+			}
+		}
+		li:hover{
+			background-color: $defaultPrimaryColor;
+		}
+	}
+	nav{
+		li{
+			width: 128px;
+			text-align: center;
+			a{
 
+			}
+		}
+	}
 }
 
 main{
@@ -83,13 +108,20 @@ main{
 		box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 		padding: 1.2rem; 
 		.rps-window{
-			background: #FFC107;
-			font-size: 10rem;
+			background: $lightPrimaryColor;
+			font-size: 6.4rem;
 			box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+			color: #FFC107;
 		}
 	}
 }
 
 footer{
-
+	background: $defaultPrimaryColor;
+	.main-footer-container{
+		color: $primaryTextColor;
+	}
+	.footer-copyright{
+		background: $darkPrimaryColor;
+	}
 }

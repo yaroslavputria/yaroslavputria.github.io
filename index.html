@@ -7,19 +7,24 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<title>RPS</title>
 	<!-- css -->
+	<!-- delete this icons -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="css/font-awesome/font-awesome.css" rel="stylesheet">
 	<link href="css/materialize.css" type="text/css" rel="stylesheet"/>
 	<link href="css/main.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
 	<header>
+		<ul id="modes-dropdown" class="dropdown-content">
+		  <li><a href="#">vs begginer</a></li>
+		  <li><a href="#">vs expert</a></li>
+		</ul>
 		<nav role="navigation">
 			<div class="nav-wrapper container">
-				<a href="#" class="brand-logo left">RPS</a>
+				<a href="index.html" class="brand-logo left">RPS</a>
 				<ul class="right">
-					<li><a href="#">modes</a></li>
+					<li><a class="dropdown-button" href="#" data-activates="modes-dropdown">modes</a></li>
 					<li><a href="#">stats</a></li>
-					<li><a href="#">log in</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -113,13 +118,13 @@
 		</div>
 		<div class="row">
 			<div class="col s6">
-				<div class="container rps-window">
-					?
+				<div id="my-hand" class="container rps-window">
+					<i class="fa fa-hand-scissors-o fa-flip-horizontal"></i>
 				</div>
 			</div>
 			<div class="col s6">
-				<div class="container rps-window">
-					?
+				<div id="PC-hand" class="container rps-window">
+					<i class="fa fa-question-circle"></i>
 				</div>
 			</div>
 			<div class="col s12">
@@ -132,17 +137,17 @@
 			</div>
 			<div class="col s4">
 				<div class="container rps-window">
-					?
+					<i class="fa fa-hand-rock-o"></i>
 				</div>
 			</div>
 			<div class="col s4">
 				<div class="container rps-window">
-					?
+					<i class="fa fa-hand-paper-o"></i>
 				</div>
 			</div>
 			<div class="col s4">
 				<div class="container rps-window">
-					?
+					<i class="fa fa-hand-scissors-o"></i>
 				</div>
 			</div>
 		</div>
@@ -150,8 +155,8 @@
 
 </main>
 <!-- =============footer================ -->
-<footer class="default-primary-color">
-	<div class="container primary-text-color">
+<footer>
+	<div class="container main-footer-container">
 		<div class="row">
 			<div class="col l6 s12">
 				<h5 class="white-text">Footer Content</h5>
@@ -168,7 +173,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="footer-copyright dark-primary-color">
+	<div class="footer-copyright">
 		<div class="container">
 			© 2014 Copyright Text
 			<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
