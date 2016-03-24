@@ -13,18 +13,6 @@ $secondaryTextColor: #727272;
 //border color
 $dividerColor: #B6B6B6;
 
-@media only screen and (max-width : 992px) {
-	.card .card-image .card-title h2{
-		font-size: 2.4rem !important;
-	}
-}
-
-@media only screen and (max-width : 600px) {
-	.card .card-image .card-title h2{
-		font-size: 1.4rem !important;
-	} 
-}
-
 body{
 	min-width: 400px;
 }
@@ -46,26 +34,29 @@ body{
 
 header{
 	.dropdown-content{
+		top: 64px !important;
 		li{
 			a{
 				height: 64px;
 				line-height: 64px;
-				padding: 0;
-				padding-left: 14px;
+				padding: 0 14px;
+			}
+			a:hover{
+				background-color: $defaultPrimaryColor;
 			}
 		}
-		li:hover{
-			background-color: $defaultPrimaryColor;
-		}
+	
 	}
 	nav{
-		li{
-			width: 128px;
-			text-align: center;
-			a{
 
+		li{
+			a{
 			}
+			a.active {
+			background: $darkPrimaryColor !important;
 		}
+		}
+		
 	}
 }
 
@@ -124,4 +115,32 @@ footer{
 	.footer-copyright{
 		background: $darkPrimaryColor;
 	}
+}
+
+
+
+
+@media only screen and (max-width : 992px) {
+	.card .card-image .card-title h2{
+		font-size: 2.4rem !important;
+	}
+}
+
+@media only screen and (max-width : 600px) {
+
+	.card .card-image .card-title h2{
+		font-size: 1.4rem !important;
+	}
+	header{
+		.dropdown-content{
+			top: 56px !important;
+			li{
+				a{
+					height: 56px !important;
+					line-height: 56px !important;
+					padding-left: 12px !important;
+				}
+			}
+		}
+	} 
 }
