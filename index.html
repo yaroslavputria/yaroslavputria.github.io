@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="rpsApp">
 <head>
 
 	<!-- add more meta! -->
@@ -13,7 +13,7 @@
 	<link href="css/materialize.css" type="text/css" rel="stylesheet"/>
 	<link href="css/main.css" type="text/css" rel="stylesheet"/>
 </head>
-<body>
+<body ng-controller="rpsCtrl">
 	<header>
 		<ul id="modes-dropdown" class="dropdown-content">
 		  <li><a href="#">vs begginer</a></li>
@@ -51,7 +51,8 @@
 
 							</div>
 							<div class="card-action">
-
+								<p>Age: {{user.age}}</p>
+								<p>Male: {{user.male}}</p>
 							</div>
 
 
@@ -60,7 +61,7 @@
 				</div>
 			</div>
 		</div>
-
+<!-- 
 		<div class="container quick-user-info">
 			<h3>Give us little info abut You:</h3>
 			<form action="#">
@@ -151,7 +152,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 </main>
 <!-- =============footer================ -->
@@ -185,6 +186,10 @@
 <!-- js -->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="js/materialize.js"></script>
-<script src="js/init.js"></script>
+<script src="js/angular.js"></script>
+
+<script src="js/tmp_init.js"></script>
+
+<script src="js/rpsApp.js"></script>
 </body>
 </html>

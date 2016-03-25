@@ -44,7 +44,7 @@ header{
 				background-color: $defaultPrimaryColor;
 			}
 		}
-	
+
 	}
 	nav{
 
@@ -52,8 +52,8 @@ header{
 			a{
 			}
 			a.active {
-			background: $darkPrimaryColor !important;
-		}
+				background: $darkPrimaryColor !important;
+			}
 		}
 		
 	}
@@ -62,15 +62,20 @@ header{
 main{
 	.wrap-main-card{
 		margin: 4.8rem auto;
-		.card .card-image .card-title {
-			top:0;
-			left:0;
-			margin: 0;
-			width: 67%;
-			height: 100%;
-			h2{
-				font-size: 3rem;
-				margin: 0 auto;
+		
+		.card{
+			box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+
+			.card-image .card-title {
+				top:0;
+				left:0;
+				margin: 0;
+				width: 67%;
+				height: 100%;
+				h2{
+					font-size: 3rem;
+					margin: 0 auto;
+				}
 			}
 		}
 
@@ -123,6 +128,21 @@ footer{
 	.card .card-image .card-title h2{
 		font-size: 2.4rem !important;
 	}
+	main{
+		.wrap-main-card{
+			margin: 3.2rem auto;
+
+		}
+
+		.quick-user-info{
+			margin: 3.2rem auto;
+
+		}
+
+		.game-space{
+			margin: 3.2rem auto;
+		}
+	}
 }
 
 @media only screen and (max-width : 600px) {
@@ -142,4 +162,19 @@ footer{
 			}
 		}
 	} 
+	main{
+		.wrap-main-card{
+			margin: 2.4rem auto;
+
+		}
+
+		.quick-user-info{
+			margin: 2.4rem auto;
+
+		}
+
+		.game-space{
+			margin: 2.4rem auto;
+		}
+	}
 }
