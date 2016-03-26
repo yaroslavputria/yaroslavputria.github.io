@@ -14,6 +14,7 @@ $secondaryTextColor: #727272;
 $dividerColor: #B6B6B6;
 
 body{
+	min-width: 300px;
 }
 
 .row{
@@ -80,7 +81,10 @@ main{
 		}
 
 		.card-content{
-			padding: 0.8rem;
+			padding: 10px 20px;
+			.first-info-p{
+				margin: 0.6rem;
+			}
 		}
 	}
 
@@ -104,7 +108,13 @@ main{
 		padding: 1.2rem; 
 		.rps-window{
 			background: $lightPrimaryColor;
-			font-size: 6.4rem;
+			font-size: 14rem;
+			box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+			color: #FFC107;
+		}
+		.rps-window-option{
+			background: $lightPrimaryColor;
+			font-size: 10rem;
 			box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 			color: #FFC107;
 		}
@@ -132,6 +142,7 @@ footer{
 		.wrap-main-card{
 			margin: 3.2rem auto;
 
+
 		}
 
 		.quick-user-info{
@@ -141,6 +152,15 @@ footer{
 
 		.game-space{
 			margin: 3.2rem auto;
+			h2{
+				font-size: 3rem;
+			}
+			.rps-window{
+				font-size: 10rem !important;
+			}
+			.rps-window-option{
+				font-size: 7.6rem !important;
+			}
 		}
 	}
 }
@@ -165,6 +185,19 @@ footer{
 	main{
 		.wrap-main-card{
 			margin: 2.4rem auto;
+			.card{
+
+				.card-image .card-title {
+					h2{
+					}
+				}
+			}
+
+			.card-content{
+				.first-info-p{
+					font-size: 1.2rem;
+				}
+			}
 
 		}
 
@@ -175,6 +208,19 @@ footer{
 
 		.game-space{
 			margin: 2.4rem auto;
+			h2{
+				font-size: 2rem;
+			}
+			.rps-window{
+				font-size: 6.6rem !important;
+			}
+			.rps-window-option{
+				font-size: 4.2rem !important;
+			}
 		}
 	}
 }
+
+ // .hide-this{
+ // 	display:none !important;
+ // }
