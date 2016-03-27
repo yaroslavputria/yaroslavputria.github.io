@@ -112,11 +112,21 @@ main{
 			box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 			color: #FFC107;
 		}
-		.rps-window-option{
+		#myHand{
+			cursor: pointer;
+		}
+		#myHand:hover{
+			box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+			.rps-window-option{
 			background: $lightPrimaryColor;
 			font-size: 10rem;
 			box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 			color: #FFC107;
+			cursor: pointer;
+		}
+		.rps-window-option:hover{
+			box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 		}
 	}
 }
