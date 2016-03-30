@@ -1,3 +1,21 @@
+// $("ul li").click(function(e) {
+
+//   /* Add the slider movement */
+
+//   // what tab was pressed
+//   var whatTab = $(this).index();
+
+//   // Work out how far the slider needs to go
+//   var howFar = 160 * whatTab;
+
+//   $(".slider").css({
+//     left: howFar + "px"
+//   });
+// });
+
+
+
+
 (function($){
   $(function(){
 
