@@ -1,17 +1,23 @@
-var rpsApp = angular.module('rpsApp', []);
-rpsApp.run(function($rootScope){
+var rpsApp = angular.module('rpsApp', ["ngRoute"]);
+rpsApp.run(function($rootScope, $timeout){
 
 });
-rpsApp.controller("rpsCtrl", function($scope){
-	var myHand = angular.element(document.getElementById("myHand")),
-	PCHand = angular.element(document.getElementById("pcHand")),
-	scoreRow = angular.element(document.getElementById("scoreRow")),
-	stepConditionRow = angular.element(document.getElementById("stepConditionRow")),
-	againstPCRow = angular.element(document.getElementById("againstPCRow")),
-	rpsOptionsRow = angular.element(document.getElementById("rpsOptionsRow")),
-	rpsOptions = angular.element(document.querySelectorAll(".rps-window-option"));
+rpsApp.config(function($routeProvider){
+	$routeProvider.when('/gameSpace',
+        {
+            templateUrl:'../views/gameSpace.html',
+             controller:'rpsCtrl'
+        });
+        $routeProvider.when('/userInfo',
+        {
+            templateUrl:'../views/userInfo.html',
+            controller:'rpsCtrl'
+        });
 
-//+++++++++++++++++++++++++++++++++++++++++++++++
+        // $routeProvider.otherwise({redirectTo: '/question'});//маршрут за замовчуванням
+});
+rpsApp.controller("rpsCtrl", function($scope, $timeout){
+	
 
 //тимчасовий масив статистики
 var arrOfStats = [];
@@ -80,24 +86,23 @@ function myCurrentHand(){
 	};
 };
 
-//
+//зміна руки пк в DOM-дереві
 function makePcMove(pcMove){
 	var el = $("#pcHand i");
-	console.log(el);
 	switch(pcMove){
 		case 0: {
 			el.removeClass();
-			el.addClass("fa fa-hand-rock-o");
+			el.addClass("fa fa-diamond");
 		};
 		break;
 		case 1: {
 			el.removeClass();
-			el.addClass("fa fa-hand-paper-o");
+			el.addClass("fa fa-file-o");
 		};
 		break;
 		case 2: {
 			el.removeClass();
-			el.addClass("fa fa-hand-scissors-o");
+			el.addClass("fa fa-scissors fa-flip-horizontal");
 		};
 		break;
 	};
@@ -115,6 +120,34 @@ function compareMoves (pcMove) {
 	};
 };
 
+//рухунок
+$scope.pcScore = 0;
+$scope.myScore = 0;
+$scope.drawScore = 0;
+$scope.resMessage;
+//опрацювання результату партії
+function resultProcessing (res) {
+		switch(res){
+			case 0: {
+				$scope.myScore++;
+				$scope.resMessage = "You won!!!";
+			};
+			break;
+			case 1: {
+				$scope.pcScore++;
+				$scope.resMessage = "You lost!!!";
+			};
+			break;
+			case 2: {// is it needed? :)
+				$scope.drawScore++;
+				$scope.resMessage = "Its draw!";
+			};
+			break;
+		};
+		$scope.$apply();
+	console.log($scope.myScore, $scope.drawScore, $scope.pcScore);
+}
+
 //оновлення масиву статистики
 function refreshArrOfStats (currentSituation, currentMove) {
 	arrOfStats[currentSituation][currentMove]++;
@@ -126,37 +159,43 @@ function move(){
 	currentMove = myCurrentHand(),
 	lastMove = arrOfMoves.length - 1,
 	preLastMove = lastMove - 1,
-	currentSituation = "" + arrOfMoves[lastMove] + arrOfMoves[preLastMove],
+	currentSituation = "" + arrOfMoves[preLastMove] + arrOfMoves[lastMove],
 	userHandStats = userHandFromStats(currentSituation);
 
 	pcMove = choseMove(userHandStats);
+	makePcMove(pcMove);
+	currentMoveResult = compareMoves(pcMove);
 
-//////////////////
-makePcMove(pcMove);
-//застосування вирахуваного ходу для пк
-//////////////////
-currentMoveResult = compareMoves(pcMove);
-//////////////////
-//опрацювання результату ходу
-//////////////////
+
+	resultProcessing(currentMoveResult);
+
 		arrOfMoves.push("" + currentMove + currentMoveResult);//додаємо поточний хід в масив ходів
 		refreshArrOfStats(currentSituation, currentMove);
 
 	};
 //+++++++++++++++++++++++++++++++++++++++++++++++
 
+var myHand = angular.element(document.getElementById("myHand")),
+	PCHand = angular.element(document.getElementById("pcHand")),
+	scoreRow = angular.element(document.getElementById("scoreRow")),
+	stepConditionRow = angular.element(document.getElementById("stepConditionRow")),
+	againstPCRow = angular.element(document.getElementById("againstPCRow")),
+	rpsOptionsRow = angular.element(document.getElementById("rpsOptionsRow")),
+	rpsOptions = angular.element(document.querySelectorAll(".rps-window-option"));
+
+//+++++++++++++++++++++++++++++++++++++++++++++++
 
 myHand.on("click", function(e){
-	setTimeout(function() {
+     var moveToChoseOption = $timeout(function(){
 		scoreRow.slideToggle(0);
 		stepConditionRow.slideToggle(0);
 		againstPCRow.slideToggle(0);
 		rpsOptionsRow.slideToggle(0);
-	}, 200);
+	}, 300);
 
 });
 rpsOptions.on("click", function(e){
-	setTimeout(function() {
+ var choseOption = $timeout(function(){
 		scoreRow.slideToggle(0);
 		stepConditionRow.slideToggle(0);
 		againstPCRow.slideToggle(0);
@@ -168,7 +207,7 @@ rpsOptions.on("click", function(e){
 var chosenOption = angular.element(e.currentTarget).children()[0];
 myHand.append(chosenOption.cloneNode());
 move();
-}, 200);
+}, 300);
 
 });
 });

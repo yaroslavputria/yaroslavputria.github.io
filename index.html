@@ -16,8 +16,8 @@
 <body ng-controller="rpsCtrl">
 	<header>
 		<ul id="modes-dropdown" class="dropdown-content">
-			<li><a href="#">vs begginer</a></li>
-			<li><a href="#">vs expert</a></li>
+			<li><a href="#/gameSpace">vs begginer</a></li>
+			<li><a href="#/gameSpace">vs expert</a></li>
 		</ul>
 		<nav role="navigation">
 			<div class="nav-wrapper container">
@@ -31,6 +31,7 @@
 	</header>
 	<!-- ===============main================ -->
 	<main>
+	<ng-view></ng-view>
 		<div class="wrap-main-card container" id="mainCard">
 			<div class="row">
 				<div class="col s12">
@@ -56,98 +57,7 @@
 			</div>
 		</div>
 
-		<div class="container quick-user-info" id="userInfo">
-			<h3>Little info about You:</h3>
-			<form action="#">
-				<div class="row">
-					<div class="col s4 offset-s2">
-						
-						<div class="wrap-radioinputs">
-							<h5 left-align>Male:</h5>
-							<p>
-								<input name="group1" type="radio" id="test1" />
-								<label for="test1"><i class="fa fa-mars"></i> male</label>
-							</p>
-							<p>
-								<input name="group1" type="radio" id="test2" />
-								<label for="test2"><i class="fa fa-venus"></i> female</label>
-							</p>
-						</div>
-					</div>
-					<div class="col s4">
-
-						<div class="wrap-radioinputs">
-							<h5 left-align>Age:</h5>
-							<p>
-								<input name="group2" type="radio" id="test3" />
-								<label for="test3">< 14</label>
-							</p>
-							<p>
-								<input name="group2" type="radio" id="test4" />
-								<label for="test4">14 - 25</label>
-							</p>
-							<p>
-								<input name="group2" type="radio" id="test5" />
-								<label for="test5">> 25</label>
-							</p>
-						</div>
-					</div>
-					<a class="waves-effect waves-light btn modes-btn">Lets play</a>
-
-				</div>
-			</form>
-		</div>
-
-		<div class="container game-space">
-			<div class="row" id="scoreRow">
-				<div class="col s3 push-s1">
-					<h2>You</h2>
-				</div>
-				<div class="col s4 push-s1">
-					<h2><span class="score" id="myScore">17</span>:<span class="score" id="PSScore">03</span></h2>
-				</div>
-				<div class="col s3 push-s1">
-					<h2>PC</h2>
-				</div>
-			</div>
-			<div class="row" id="stepConditionRow" hidden>
-				<div class="col s12">
-					<h2 id="stepCondition">Chose your hand!<!-- You won! --></h2>
-				</div>
-			</div>
-			<div class="row" id="againstPCRow">
-				<div class="col s6">
-					<div id="myHand" class="container rps-window waves-light waves-effect">
-						<!-- <i class="fa fa-hand-scissors-o fa-flip-horizontal"></i> -->
-						<b class="fa">?</b>
-					</div>
-				</div>
-				<div class="col s6">
-					<div id="pcHand" class="container rps-window">
-						<!-- <i class="fa fa-question-circle"></i> -->
-						<i class="fa fa-hand-rock-o"></i>
-					</div>
-				</div>
-				
-			</div>
-			<div class="row" id="rpsOptionsRow" hidden>
-				<div class="col s4">
-					<div class="container rps-window-option waves-effect waves-light" id="rpsOption0">
-						<i class="fa fa-hand-rock-o"></i>
-					</div>
-				</div>
-				<div class="col s4">
-					<div class="container rps-window-option waves-effect waves-light" id="rpsOption1">
-						<i class="fa fa-hand-paper-o"></i>
-					</div>
-				</div>
-				<div class="col s4">
-					<div class="container rps-window-option waves-effect waves-light" id="rpsOption2">
-						<i class="fa fa-hand-scissors-o fa-flip-horizontal"></i>
-					</div>
-				</div>
-			</div>
-		</div>
+		
 
 	</main>
 	<!-- =============footer================ -->
