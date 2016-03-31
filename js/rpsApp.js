@@ -1,23 +1,38 @@
 var rpsApp = angular.module('rpsApp', ["ngRoute"]);
-rpsApp.run(function($rootScope, $timeout){
 
-});
 rpsApp.config(function($routeProvider){
-	$routeProvider.when('/gameSpace',
-        {
-            templateUrl:'../views/gameSpace.html',
-             controller:'rpsCtrl'
-        });
-        $routeProvider.when('/userInfo',
-        {
-            templateUrl:'../views/userInfo.html',
-            controller:'rpsCtrl'
-        });
-
-        // $routeProvider.otherwise({redirectTo: '/question'});//маршрут за замовчуванням
+	$routeProvider.when('/gamespace', {
+		templateUrl:'views/gameSpace.html',
+		controller:'rpsCtrl'
+	});
+	$routeProvider.when('/userinfo', {
+		templateUrl:'views/userInfo.html',
+		controller:'rpsCtrl'
+	});
+	$routeProvider.when('/maincard', {
+		templateUrl:'views/mainCard.html',
+		controller:'rpsCtrl'
+	});
+	$routeProvider.otherwise({redirectTo: '/maincard'});//маршрут за замовчуванням
 });
-rpsApp.controller("rpsCtrl", function($scope, $timeout){
-	
+
+// rpsApp.run(function($rootScope, $timeout, $templateCache) {
+//     $rootScope.$on('$routeChangeStart', function(event, next, current) {
+//         if (typeof(current) !== 'undefined'){
+//             $templateCache.remove(current.templateUrl);//видалення кешування для маршрута, на який здійснюється перехід
+//         }
+
+//     });
+
+rpsApp.controller("rpsCtrl", function($scope, $timeout, $http, $location, $templateCache){
+
+$scope.$on('$routeChangeStart',  function(event, next, current){
+       if (typeof(current) !== 'undefined'){
+            $templateCache.remove(next.templateUrl);
+            console.log(next);
+            console.log(current);
+        }
+});
 
 //тимчасовий масив статистики
 var arrOfStats = [];
@@ -127,25 +142,25 @@ $scope.drawScore = 0;
 $scope.resMessage;
 //опрацювання результату партії
 function resultProcessing (res) {
-		switch(res){
-			case 0: {
-				$scope.myScore++;
-				$scope.resMessage = "You won!!!";
-			};
-			break;
-			case 1: {
-				$scope.pcScore++;
-				$scope.resMessage = "You lost!!!";
-			};
-			break;
-			case 2: {// is it needed? :)
-				$scope.drawScore++;
-				$scope.resMessage = "Its draw!";
-			};
-			break;
+	switch(res){
+		case 0: {
+			$scope.myScore++;
+			$scope.resMessage = "You won!!!";
 		};
-		$scope.$apply();
-	console.log($scope.myScore, $scope.drawScore, $scope.pcScore);
+		break;
+		case 1: {
+			$scope.pcScore++;
+			$scope.resMessage = "You lost!!!";
+		};
+		break;
+			case 2: {// is it needed? :)
+	$scope.drawScore++;
+	$scope.resMessage = "Its draw!";
+};
+break;
+};
+$scope.$apply();
+console.log($scope.myScore, $scope.drawScore, $scope.pcScore);
 }
 
 //оновлення масиву статистики
@@ -176,17 +191,17 @@ function move(){
 //+++++++++++++++++++++++++++++++++++++++++++++++
 
 var myHand = angular.element(document.getElementById("myHand")),
-	PCHand = angular.element(document.getElementById("pcHand")),
-	scoreRow = angular.element(document.getElementById("scoreRow")),
-	stepConditionRow = angular.element(document.getElementById("stepConditionRow")),
-	againstPCRow = angular.element(document.getElementById("againstPCRow")),
-	rpsOptionsRow = angular.element(document.getElementById("rpsOptionsRow")),
-	rpsOptions = angular.element(document.querySelectorAll(".rps-window-option"));
+PCHand = angular.element(document.getElementById("pcHand")),
+scoreRow = angular.element(document.getElementById("scoreRow")),
+stepConditionRow = angular.element(document.getElementById("stepConditionRow")),
+againstPCRow = angular.element(document.getElementById("againstPCRow")),
+rpsOptionsRow = angular.element(document.getElementById("rpsOptionsRow")),
+rpsOptions = angular.element(document.querySelectorAll(".rps-window-option"));
 
 //+++++++++++++++++++++++++++++++++++++++++++++++
 
 myHand.on("click", function(e){
-     var moveToChoseOption = $timeout(function(){
+	     var moveToChoseOption = $timeout(function(){
 		scoreRow.slideToggle(0);
 		stepConditionRow.slideToggle(0);
 		againstPCRow.slideToggle(0);
@@ -195,7 +210,7 @@ myHand.on("click", function(e){
 
 });
 rpsOptions.on("click", function(e){
- var choseOption = $timeout(function(){
+	 var choseOption = $timeout(function(){
 		scoreRow.slideToggle(0);
 		stepConditionRow.slideToggle(0);
 		againstPCRow.slideToggle(0);

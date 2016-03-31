@@ -1,53 +1,54 @@
-
-		<div class="container game-space">
-			<div class="row" id="scoreRow">
-				<div class="col s3 push-s1">
-					<h2>You</h2>
-				</div>
-				<div class="col s4 push-s1">
-					<h2><span class="score" id="myScore">{{myScore}}</span>:<span class="score" id="PSScore">{{pcScore}}</span></h2>
-				</div>
-				<div class="col s3 push-s1">
-					<h2>PC</h2>
+<div>
+	<div class="container game-space">
+		<div class="row" id="scoreRow">
+			<div class="col s3 push-s1">
+				<h2>You</h2>
+			</div>
+			<div class="col s4 push-s1">
+				<h2><span class="score" id="myScore">{{myScore}}</span>:<span class="score" id="PSScore">{{pcScore}}</span></h2>
+			</div>
+			<div class="col s3 push-s1">
+				<h2>PC</h2>
+			</div>
+		</div>
+		<div class="row" id="stepConditionRow" hidden>
+			<div class="col s12">
+				<h2 id="stepCondition">Chose your hand!<!-- You won! --></h2>
+			</div>
+		</div>
+		<div class="row" id="againstPCRow">
+			<div class="col s6">
+				<div id="myHand" class="container rps-window waves-light waves-effect">
+					<!-- <i class="fa fa-hand-scissors-o fa-flip-horizontal"></i> -->
+					<b class="fa">?</b>
 				</div>
 			</div>
-			<div class="row" id="stepConditionRow" hidden>
-				<div class="col s12">
-					<h2 id="stepCondition">Chose your hand!<!-- You won! --></h2>
+			<div class="col s6">
+				<div id="pcHand" class="container rps-window">
+					<!-- <i class="fa fa-question-circle"></i> -->
+					<i class="fa fa-hashtag"></i>
 				</div>
 			</div>
-			<div class="row" id="againstPCRow">
-				<div class="col s6">
-					<div id="myHand" class="container rps-window waves-light waves-effect">
-						<!-- <i class="fa fa-hand-scissors-o fa-flip-horizontal"></i> -->
-						<b class="fa">?</b>
-					</div>
-				</div>
-				<div class="col s6">
-					<div id="pcHand" class="container rps-window">
-						<!-- <i class="fa fa-question-circle"></i> -->
-						<i class="fa fa-hashtag"></i>
-					</div>
-				</div>
-				<div class="col s12 center-align">
-						<h2><span class="score" id="myScore">{{resMessage}}</span></h2>
-					</div>
+			<div class="col s12 center-align">
+				<h2><span class="score" id="myScore">{{resMessage}}</span></h2>
 			</div>
-			<div class="row" id="rpsOptionsRow" hidden>
-				<div class="col s4">
-					<div class="container rps-window-option waves-effect waves-light" id="rpsOption0">
-						<i class="fa fa-hand-rock-o"></i>
-					</div>
+		</div>
+		<div class="row" id="rpsOptionsRow" hidden>
+			<div class="col s4">
+				<div class="container rps-window-option waves-effect waves-light" id="rpsOption0">
+					<i class="fa fa-hand-rock-o"></i>
 				</div>
-				<div class="col s4">
-					<div class="container rps-window-option waves-effect waves-light" id="rpsOption1">
-						<i class="fa fa-hand-paper-o"></i>
-					</div>
+			</div>
+			<div class="col s4">
+				<div class="container rps-window-option waves-effect waves-light" id="rpsOption1">
+					<i class="fa fa-hand-paper-o"></i>
 				</div>
-				<div class="col s4">
-					<div class="container rps-window-option waves-effect waves-light" id="rpsOption2">
-						<i class="fa fa-hand-scissors-o fa-flip-horizontal"></i>
-					</div>
+			</div>
+			<div class="col s4">
+				<div class="container rps-window-option waves-effect waves-light" id="rpsOption2">
+					<i class="fa fa-hand-scissors-o fa-flip-horizontal"></i>
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
