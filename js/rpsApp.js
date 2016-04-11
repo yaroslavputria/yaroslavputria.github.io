@@ -1,6 +1,10 @@
 var rpsApp = angular.module('rpsApp', ["ngRoute"]);
 
-rpsApp.config(function($routeProvider){
+rpsApp.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider){
+	// $locationProvider.html5Mode({
+	// 	enabled: true,
+	// 	requireBase: false
+	// });
 	$routeProvider.when('/gamespace', {
 		templateUrl:'views/gameSpace.html',
 		controller:'rpsCtrl'
@@ -14,7 +18,7 @@ rpsApp.config(function($routeProvider){
 		controller:'rpsCtrl'
 	});
 	$routeProvider.otherwise({redirectTo: '/maincard'});//маршрут за замовчуванням
-});
+}]);
 
 // rpsApp.run(function($rootScope, $timeout, $templateCache) {
 //     $rootScope.$on('$routeChangeStart', function(event, next, current) {
@@ -23,8 +27,10 @@ rpsApp.config(function($routeProvider){
 //         }
 
 //     });
+rpsApp.controller("mainCardCtrl", ["$scope", "$timeout", "$location", function($scope, $timeout, $location){
 
-rpsApp.controller("rpsCtrl", function($scope, $timeout, $http, $location, $templateCache){
+}]);
+rpsApp.controller("rpsCtrl", ["$scope", "$timeout", "$http", "$location", "$route", "$templateCache", function($scope, $timeout, $http, $location, $route, $templateCache){
 
 $scope.$on('$routeChangeStart',  function(event, next, current){
        if (typeof(current) !== 'undefined'){
@@ -225,7 +231,7 @@ move();
 }, 300);
 
 });
-});
+}]);
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
