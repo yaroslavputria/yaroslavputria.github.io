@@ -13,12 +13,14 @@ body{
 .wrap-hero-info{
 
 }
-.hero-info{
-
+.wrap-hero-info ul{
+	list-style-type: none;
+	text-align: left;
 }
 .wrap-films{
 
 }
-.films{
-
+.wrap-films ul{
+	list-style-type: none;
+	text-align: left;
 }

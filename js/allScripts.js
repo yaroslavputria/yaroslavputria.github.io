@@ -32,8 +32,12 @@ function getAjaxHero(id) {
 				}).then(function(films) {
 					var filmPromises = films.map(film => getAjaxFilm(film));
 					return Promise.all(filmPromises);
-				}).then(function(allEpisods){
-					currentHeroFilmsUl = makeFilmsInfoUl(allEpisods);
+				}).then(function(allEpisodObjs){
+					allEpisodObjs.sort(function(a,b){
+						return a.episodeId > b.episodeId
+					});
+					var episodNames = allEpisodObjs.map(i => i.name);
+					currentHeroFilmsUl = makeFilmsInfoUl(episodNames);
 				}).then(function(){
 					//tmp
 					var forHero = document.querySelector(".wrap-hero-info");
@@ -66,8 +70,11 @@ function getAjaxFilm(url) {
 			var contentType = response.headers.get("content-type");
 			if(contentType && contentType.indexOf("application/json") !== -1) {
 				return response.json().then(function(filmObj) {
-					var fullFilmName = "Episode " + filmObj.episode_id + ": " + filmObj.title;
-					return fullFilmName;
+					var fullFilmNameObj = {
+						name: "Episode " + filmObj.episode_id + ": " + filmObj.title,
+						episodeId: filmObj.episode_id
+					};
+					return fullFilmNameObj;
 				});
 			}	else {
 				console.log("There is no JSON!");
