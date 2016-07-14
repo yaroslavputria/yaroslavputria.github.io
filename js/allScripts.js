@@ -40,6 +40,7 @@ function getAjaxHero(id) {
 					forHero.appendChild(currentHeroInfoUl);
 					var forFilms = document.querySelector(".wrap-films");
 					forFilms.appendChild(currentHeroFilmsUl);
+					return currentId;
 				});
 			}	else {
 				console.log("There is no JSON!");
@@ -103,5 +104,4 @@ function makeFilmsInfoUl(arrOfFilsm) {
 
 console.dir(getAjaxHero(1));
 
-console.dir(getAjaxFilm(1));
 
