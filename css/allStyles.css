@@ -4,8 +4,17 @@ body{
 .wrap-all{
 
 }
+h1{
+	margin: 40px 0;
+}
 .wrap-avatar{
-
+	margin-bottom: 40px;
+}
+.wrap-avatar img{
+	border: 2px solid grey;
+	border-radius: 5px;
+}
+.wrap-avatar img{
 }
 .btn-nav-group{
 

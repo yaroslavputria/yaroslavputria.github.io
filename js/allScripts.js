@@ -31,11 +31,10 @@ function checkNavButtons(id) {
 	}
 }
 
-//'Access-Control-Request-Headers': 'X-Custom-Header',
 function makeHero(id) {
-	var currentId = id, // delete
-		currentHeroInfoUl,
-		currentHeroFilmsUl;
+	var currentHeroInfoUl,
+		currentHeroFilmsUl,
+		heroAvatar;
 
 	loadingProcess();
 
@@ -54,7 +53,7 @@ function makeHero(id) {
 				}),
 			}
 		)
-		.then(function(response){//можна було всі функції з чейнінга описати окремо
+		.then(function(response){
 			if(response.ok) {
 				var contentType = response.headers.get("content-type");
 				if(contentType && contentType.indexOf("application/json") !== -1) {
@@ -70,6 +69,7 @@ function makeHero(id) {
 		})*/
 		.then(function(heroObj) {
 			currentHeroInfoUl = makeHeroInfoUl(heroObj);
+			heroAvatar = makeHeroAvatar(heroObj);
 			return heroObj.films;
 		})
 		.then(function(films) {
@@ -90,6 +90,11 @@ function makeHero(id) {
 				forHero.removeChild(forHero.firstChild);
 			};
 			forHero.appendChild(currentHeroInfoUl);
+			var forHeroAvatar = document.querySelector(".wrap-avatar");
+			while (forHeroAvatar.firstChild) {
+				forHeroAvatar.removeChild(forHeroAvatar.firstChild);
+			};
+			forHeroAvatar.appendChild(heroAvatar);
 			var forFilms = document.querySelector(".wrap-films");
 			while (forFilms.firstChild) {
 				forFilms.removeChild(forFilms.firstChild);
@@ -98,10 +103,24 @@ function makeHero(id) {
 
 			loadingProcess();
 			
-			return currentId;
+			return id;
 		}).catch(function(err) {
+			var forHero = document.querySelector(".wrap-hero-info");
+			while (forHero.firstChild) {
+				forHero.removeChild(forHero.firstChild);
+			};
+			var forHeroAvatar = document.querySelector(".wrap-avatar");
+			while (forHeroAvatar.firstChild) {
+				forHeroAvatar.removeChild(forHeroAvatar.firstChild);
+			};
+			var forFilms = document.querySelector(".wrap-films");
+			while (forFilms.firstChild) {
+				forFilms.removeChild(forFilms.firstChild);
+			};
 			loadingProcess();
+			alert(err.message);
 			console.log(err.message);
+			return id;
 		});
 }
 
@@ -150,6 +169,18 @@ function makeHeroInfoUl(obj) {
 	ul.appendChild(makeLiItem("Birth Year: " + formatBirthYear(obj.birth_year)));
 	ul.appendChild(makeLiItem("Gender: " + capitalizeFirstLetter(obj.gender)));
 	return ul;
+}
+
+function makeHeroAvatar(obj) {
+	var img = document.createElement('img');
+	if (obj.gender === "male") {
+		img.src = "img/male.png";
+	} else if (obj.gender === "female") {
+		img.src = "img/female.png";
+	} else {
+		img.src = "img/no_human.png";
+	};
+	return img;
 }
 
 function makeFilmsInfoUl(arrOfFilsm) {
