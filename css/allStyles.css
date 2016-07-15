@@ -17,7 +17,7 @@ h1{
 .wrap-avatar img{
 }
 .btn-nav-group{
-
+	margin-bottom: 40px;
 }
 .wrap-hero-info{
 
@@ -25,6 +25,7 @@ h1{
 .wrap-hero-info ul{
 	list-style-type: none;
 	text-align: left;
+	font-size: 17px;
 }
 .wrap-films{
 
@@ -32,4 +33,21 @@ h1{
 .wrap-films ul{
 	list-style-type: none;
 	text-align: left;
+	font-size: 17px;
+}
+.loading{
+	background-color: #000;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	z-index: 100;
+}
+.rotating-circle{
+	color: white;
+	z-index: 101;
+	font-size: 50px;
+	position: absolute;
+	top: 33%;
+	left: 50%;
 }

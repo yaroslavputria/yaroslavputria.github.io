@@ -7,16 +7,53 @@ function formatBirthYear(str) {
 }
 
 function loadingProcess() {
-	var loading = document.querySelector("#loading");
+	var loading = document.querySelector("#loading"),
+		rotatingCircle = document.querySelector(".rotating-circle");
 	if (loading !== null) {
+		if (looper) {
+			clearTimeout(looper);
+			looper = false;
+		} else {
+			rotateAnimation(rotatingCircle);
+		};
 		loading.hidden = !loading.hidden;
 	} else {
 		loading = document.createElement("div");
-		loading.style.cssText = "background-color: #000; width: 100%;	height: 100%;	position: absolute;	top: 0; z-index: 100";
+		loading.classList.add("loading");
 		loading.id = "loading";
+		rotatingCircle = document.createElement("span");
+		rotatingCircle.classList.add("glyphicon");
+		rotatingCircle.classList.add("glyphicon-refresh");
+		rotatingCircle.classList.add("rotating-circle");
+		loading.appendChild(rotatingCircle);
 		document.body.appendChild(loading);
+		rotateAnimation(rotatingCircle);
 	}
 }
+
+var looper,
+	degrees = 0;
+function rotateAnimation(el) {
+	if(navigator.userAgent.match("Chrome")){
+		el.style.WebkitTransform = "rotate("+degrees+"deg)";
+	} else if(navigator.userAgent.match("Firefox")){
+		el.style.MozTransform = "rotate("+degrees+"deg)";
+	} else if(navigator.userAgent.match("MSIE")){
+		el.style.msTransform = "rotate("+degrees+"deg)";
+	} else if(navigator.userAgent.match("Opera")){
+		el.style.OTransform = "rotate("+degrees+"deg)";
+	} else {
+		el.style.transform = "rotate("+degrees+"deg)";
+	}
+	looper = setTimeout(function(){
+		rotateAnimation(el);
+	},7);
+	degrees++;
+	if(degrees > 359){
+		degrees = 1;
+	}
+}
+
 
 function checkNavButtons(id) {
 	var prevBtn = document.getElementById("prev-hero-btn"),
@@ -64,9 +101,7 @@ function makeHero(id) {
 			} else {
 				throw new Error("There is no such hero");
 			};
-		})/*.catch(function(err) {
-			console.dir(err);
-		})*/
+		})
 		.then(function(heroObj) {
 			currentHeroInfoUl = makeHeroInfoUl(heroObj);
 			heroAvatar = makeHeroAvatar(heroObj);
@@ -84,44 +119,41 @@ function makeHero(id) {
 			currentHeroFilmsUl = makeFilmsInfoUl(episodNames);
 		})
 		.then(function(){
-			//tmp
-			var forHero = document.querySelector(".wrap-hero-info");
-			while (forHero.firstChild) {
-				forHero.removeChild(forHero.firstChild);
-			};
-			forHero.appendChild(currentHeroInfoUl);
-			var forHeroAvatar = document.querySelector(".wrap-avatar");
-			while (forHeroAvatar.firstChild) {
-				forHeroAvatar.removeChild(forHeroAvatar.firstChild);
-			};
-			forHeroAvatar.appendChild(heroAvatar);
-			var forFilms = document.querySelector(".wrap-films");
-			while (forFilms.firstChild) {
-				forFilms.removeChild(forFilms.firstChild);
-			};
-			forFilms.appendChild(currentHeroFilmsUl);
-
+			rebuildHeroInfo(currentHeroInfoUl, currentHeroFilmsUl, heroAvatar);
 			loadingProcess();
-			
 			return id;
 		}).catch(function(err) {
-			var forHero = document.querySelector(".wrap-hero-info");
-			while (forHero.firstChild) {
-				forHero.removeChild(forHero.firstChild);
-			};
-			var forHeroAvatar = document.querySelector(".wrap-avatar");
-			while (forHeroAvatar.firstChild) {
-				forHeroAvatar.removeChild(forHeroAvatar.firstChild);
-			};
-			var forFilms = document.querySelector(".wrap-films");
-			while (forFilms.firstChild) {
-				forFilms.removeChild(forFilms.firstChild);
-			};
+			removeHeroInfo();
 			loadingProcess();
 			alert(err.message);
-			console.log(err.message);
+			console.dir(err);
 			return id;
 		});
+}
+
+function rebuildHeroInfo(currentHeroInfoUl, currentHeroFilmsUl, heroAvatar) {
+	removeHeroInfo();
+	var forHero = document.querySelector(".wrap-hero-info"),
+		forHeroAvatar = document.querySelector(".wrap-avatar"),
+		forFilms = document.querySelector(".wrap-films");
+	forHero.appendChild(currentHeroInfoUl);
+	forHeroAvatar.appendChild(heroAvatar);
+	forFilms.appendChild(currentHeroFilmsUl);
+}
+
+function removeHeroInfo() {
+	var forHero = document.querySelector(".wrap-hero-info"),
+		forHeroAvatar = document.querySelector(".wrap-avatar"),
+		forFilms = document.querySelector(".wrap-films");
+	while (forHero.firstChild) {
+		forHero.removeChild(forHero.firstChild);
+	};
+	while (forHeroAvatar.firstChild) {
+		forHeroAvatar.removeChild(forHeroAvatar.firstChild);
+	};
+	while (forFilms.firstChild) {
+		forFilms.removeChild(forFilms.firstChild);
+	};
 }
 
 function getFilm(url) {
@@ -198,12 +230,12 @@ var prevBtn = document.getElementById("prev-hero-btn"),
 
 nextBtn.addEventListener("mouseup", function(e) {
 	mainPromise.then(function(id) {
-		mainPromise = makeHero(id+1);
+		mainPromise = makeHero(id + 1);
 	})
 });
 
 prevBtn.addEventListener("mouseup", function(e) {
 	mainPromise.then(function(id) {
-		mainPromise = makeHero(id-1);
+		mainPromise = makeHero(id - 1);
 	})
 });
