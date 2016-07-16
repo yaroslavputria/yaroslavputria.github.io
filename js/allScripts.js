@@ -193,7 +193,7 @@ function makeLiItem(str) {
 function makeHeroInfoUl(obj) {
 	var ul = document.createElement('ul');
 	ul.appendChild(makeLiItem("Name: " + obj.name));
-	ul.appendChild(makeLiItem("Height: " + obj.height + " m"));
+	ul.appendChild(makeLiItem("Height: " + obj.height / 100 + " m"));
 	ul.appendChild(makeLiItem("Mass: " + obj.mass + " Kg"));
 	ul.appendChild(makeLiItem("Hair Color: " + capitalizeFirstLetter(obj.hair_color)));
 	ul.appendChild(makeLiItem("Skin Color: " + capitalizeFirstLetter(obj.skin_color)));
