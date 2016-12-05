@@ -44,6 +44,24 @@ rpsApp.controller("rpsCtrl", ["$scope", "$timeout", "$http", "$location", "$rout
     //         // console.log(current);
     //     }
     // });
+    var userAge = angular.element(document.getElementById("userAge"));
+
+    var forValid = angular.element(document.getElementById("forValid"));
+    forValid.on('click', function(e){
+        var age = Number(userAge.value);
+        if (0 <= age && age >=12) {
+            alert('You are too young!');
+            e.preventDefault();
+        } else if (age >=66 ) {
+            alert('You are too old, protect your health!');
+            e.preventDefault();
+        } else if (13 <= age && age >=65) {
+
+        } else {
+            alert('Unknown error, reenter your age!');
+            e.preventDefault();
+        }
+    });
 
     var tmpObjStats = {};
     
