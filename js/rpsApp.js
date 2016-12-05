@@ -44,7 +44,7 @@ rpsApp.controller("rpsCtrl", ["$scope", "$timeout", "$http", "$location", "$rout
     //         // console.log(current);
     //     }
     // });
-    var userAge = angular.element(document.getElementById("userAge"));
+    var userAge = document.getElementById("userAge");
 
     var forValid = angular.element(document.getElementById("forValid"));
     forValid.on('click', function(e) {
